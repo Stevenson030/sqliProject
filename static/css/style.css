@@ -1,0 +1,26 @@
+.alert{
+    height: 100px !important;
+}
+
+.nav-item a{
+    transition: 0.5s;
+}
+
+.nav-item a:hover{
+    background-color: #0d6efd;
+}
+
+.col{
+    height: 100vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+/*Hide Scroll Bar For Chrome*/
+.col::-webkit-scrollbar{
+    display: none;
+}
+
+.card-text::after{
+    content: "...";
+}

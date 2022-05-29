@@ -1,0 +1,44 @@
+{% extends "admin-layout.html" %}
+
+{% block title %}
+    Edit Book
+{% endblock %}
+
+{% block content %}
+
+<div class="p-5">
+  <h3 class="mb-3">Edit Book</h3>
+    <form action="/edit-book" method="POST" enctype="multipart/form-data">
+      <input type="text" name="id" value="{{ id }}" class="invisible">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Book Name</label>
+          <input type="text" class="form-control" id="book_name" name="book_name" value="{{ book[0]["book_name"] }}" required>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" name="description" required>{{ book[0]["description"] }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" name="author" value="{{ book[0]["author"] }}" required>
+        </div>
+        <select name="categories" class="form-select mb-3" required>
+            <option selected disabled>Choose Categories</option>
+            <option value="IT">IT</option>
+            <option value="English">English</option>
+            <option value="History">History</option>
+            <option value="Other">Other</option>
+        </select>
+        <div class="mb-3">
+          <label for="link" class="form-label">Enter Your Link</label>
+          <input type="text" class="form-control" id="link" name="link" value="{{ book[0]["link"] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="book_image" class="form-label">Select Image</label>
+            <input class="form-control" type="file" id="book_image" name="book_image" value="{{ book[0]["image"] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+</div>
+
+{% endblock %}

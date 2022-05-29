@@ -1,0 +1,92 @@
+{% if session.admin_id %}
+    {% extends "admin-layout.html" %}
+{% else %}
+    {% extends "layout.html" %}
+{% endif %}
+
+{% block title %}
+    Book Details
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid bg-light min-vh-100">
+    <div class="row">
+        <div class="col-12 h-100">
+            <div class="container">
+                <div class="row min-vh-100 justify-content-center align-items-center">
+                    <div class="col-8">
+                        <div>
+                            <div class="card mb-3" style="height: 400px;">
+                                <div class="card-header">
+                                    Book Details
+                                </div>
+                                <div class="row g-0 justify-content-center align-items-center h-100">
+                                  <div class="col-md-3 d-flex align-items-center justify-content-center h-100">
+                                    <img src="/static/upload/{{ book[0]["image"] }}" class="img-fluid rounded h-100" alt="...">
+                                  </div>
+                                  <div class="col-md-9">
+                                    
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <h5 class="card-title mb-0">
+                                                {{ book[0]["book_name"] }}
+                                            </h5>
+                                            <span class="badge rounded-pill bg-primary d-flex justify-content-center align-items-center">{{ book[0]["categories"] }}</span>
+                                        </div>
+                                        <h5 class="card-title mb-3">
+                                           Author : {{ book[0]["author"] }}
+                                        </h5>
+                                        <p class="card-text mb-3">
+                                            {{ book[0]["description"] }}
+                                        </p>
+                                        <a href="{{ book[0]["link"] }}" class="btn btn-primary d-inline-block" target="_blank">Download</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row min-vh-100 justify-content-center align-items-center">
+            <div class="col-8">
+                <div>
+                    <div class="card mb-3" style="height: 400px;">
+                        <div class="card-header">
+                            Book Details
+                        </div>
+                        <div class="row g-0 justify-content-center align-items-center h-100">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center h-100">
+                                <img src="/static/upload/{{ book[0]["image"] }}" class="img-fluid rounded h-100" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h5 class="card-title mb-0">
+                                            {{ book[0]["book_name"] }}
+                                        </h5>
+                                        <span class="badge rounded-pill bg-primary d-flex justify-content-center align-items-center">{{ book[0]["categories"] }}</span>
+                                    </div>
+                                    <h5 class="card-title mb-3">
+                                        Author : {{ book[0]["author"] }}
+                                    </h5>
+                                    <p class="card-text mb-3">
+                                        {{ book[0]["description"] }}
+                                    </p>
+                                    <a href="{{ book[0]["link"] }}" class="btn btn-primary d-inline-block" target="_blank">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
